@@ -1,0 +1,42 @@
+---
+title: "Stationary"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A stationary time series is one whose properties do not depend on the time at which the series is observed. 14. Thus, time series with trends, or with seasonality, are not stationary — the trend and seasonality will affect the value of the time series at different times.
+
+# Strictly Stationary
+
+Joint Distribution of ...
+
+## Implications
+
+- Identically distributed but might not be independent
+- Joint distribution of two RV's depends only on the lag space, not where you are.
+
+Autocovariance dependence only depends on separation. It's not constant but depends on the lag.
+
+ACF: $$\gamma(t1,t2) = \gamma(t2 - t1) = \gamma(\tau)$$
+
+# Weak Stationary
+
+Mean function gives constant average:
+
+$$\mu(t) = \mu$$
+ACF just depends upon lag spacing:
+
+$$\gamma(t1,t2) = \gamma(t2 - t1) = \gamma(\tau)$$
+Let lag = 0, and it's a constant variance function as well.
+
+Implication: Constant Variance
+
+# Examples
+
+- White Noise - trivially stationary
+- Random Walks - **Not** stationary
+- Moving averages - Are stationary processes
+

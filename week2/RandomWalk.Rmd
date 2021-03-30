@@ -1,0 +1,45 @@
+---
+title: "Random Walk"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+$$X_t = X_{t-1} + Z_t$$
+$$Z_t \sim \mathcal{N}(0,1)$$
+```{r}
+x = NULL
+x[1] = 0
+
+for (i in 2:1000) {
+  # Add noise at every step
+  x[i] <- x[i-1] + rnorm(1) # Add one data point
+}
+
+random_walk = ts(x) # Turn into time series
+plot(random_walk, main="A Random Walk", ylab="", xlab="Days", col='blue', lwd=2)
+```
+
+This is not a stationary time series.  Don't use acf()
+
+```{r}
+acf(random_walk)
+```
+
+# Difference
+
+Take the difference of each lag.  x_1 - x_2 , ...., x_1000 - x_999
+```{r}
+random_walk <- diff(random_walk)
+```
+
+```{r}
+plot(random_walk)
+```
+
+```{r}
+acf(random_walk)
+```
+

@@ -1,0 +1,138 @@
+---
+title: "Week 1 - Basic Statistics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+help(co2)
+```
+
+Wrap in extra () to print.
+
+Read: co2 ~ time(co2) as 'co2 on time(co2)'
+
+```{r}
+(co2.linear.model = lm(co2 ~ time(co2)))
+```
+```{r}
+summary(co2.linear.model)
+```
+
+```{r}
+sum(co2.residuals^2)
+```
+```{r}
+sum(resid(co2.linear.model)^2)
+
+```
+
+```{r}
+{plot(co2, main='Atmospheric CO2 Concentration with Fitted Line')
+abline(co2.linear.model)
+}
+```
+
+## Histogram of Residuals
+
+```{r}
+co2.residuals = resid(co2.linear.model)
+hist(co2.residuals, main="Histogram of Residuals")
+```
+
+Don't use a histogram when you only have a few points.
+
+## qqnorm
+
+```{r}
+{qqnorm(co2.residuals)
+qqline(co2.residuals)
+}
+```
+
+We see departures from normality on both ends.
+
+
+## Time Plot of Residuals
+```{r}
+plot(co2.residuals ~ time(co2))
+```
+
+# Faraway Quiz Example
+
+Yes, they're normal
+```{r}
+library(faraway)
+{plot(punting$Distance ~ punting$Hang); 
+abline( lm(punting$Distance ~ punting$Hang) )
+}
+```
+
+## Zoomed Residuals
+
+```{r}
+plot(co2.residuals ~ time(co2), xlim=c(1960,1963), main="Zoomed Residuals")
+```
+
+# Basic Statistics III
+
+## Gosset Data
+
+```{r}
+help("sleep")
+```
+
+Second drug has an advantage over the first
+
+```{r}
+plot(extra ~ group, data = sleep, main="Gosset Data")
+attach(sleep)
+extra.1 = extra[group==1]
+extra.2 = extra[group==2]
+```
+
+## Two-sided t-Test
+
+```{r}
+t.test(extra.1, extra.2, paired = TRUE, alternative = "two.sided")
+```
+df = 9, which is n-1
+
+## Question
+
+```{r}
+bpm.before = c(64, 45, 51, 56, 76, 77, 48, 65, 88, 37, 49, 71, 63, 57, 43); 
+bpm.after = c(82, 63, 64, 71, 91, 99, 66, 85, 100, 52, 59, 84, 73 ,75, 58 ); 
+{qqnorm( bpm.after - bpm.before); 
+qqline(bpm.after - bpm.before)
+}
+```
+
+# Basic Statistics IV - Correlation
+
+```{r}
+help(trees) # Cherry Trees
+```
+
+## Pairs Plot
+```{r}
+pairs(trees, pch=21, bg=c("red"))
+```
+
+- Girth is a great predictor of volume
+- Height is also a decent predictor of volume
+
+## Covariance Matrix
+
+```{r}
+cov(trees)
+```
+
+Surprise: Covariance between height and volume is more (62.66)
+
+Not consistent with picture, unless we think about units.
+
+Covariance changes, depending on units

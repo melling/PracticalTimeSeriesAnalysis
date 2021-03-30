@@ -1,0 +1,36 @@
+---
+title: "acf - Autocorrelation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Autocorrelation
+
+Stationary time-series:
+
+A stationary time series is one whose properties do not depend on the time at which the series is observed.  Thus, time series with trends, or with seasonality, are not stationary — the trend and seasonality will affect the value of the time series at different times.
+
+We assume 
+
+- Weak stationarity
+- Autocorrelation coefficient
+$$-1 \leq \rho_k = \frac{\gamma_k}{\gamma_0} \leq 1$$
+Estimation of Autocorrelation coefficient at lag k
+
+$$r_k = \frac{c_k}{c_0}$$
+
+# Correlogram
+
+# Calculate Autocorrelation coefficients
+
+Random noise
+
+```{r}
+x = 1
+data = rnorm(100,0,1)
+acf(2+3*x + data, main="ACF: Noise or Signal?")
+```
+

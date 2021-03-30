@@ -1,0 +1,52 @@
+---
+title: "Week 1 Lab 3 - Scatterplot"
+output: html_document
+---
+
+# Scatterplot for Bivariate Data
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+https://www.coursera.org/learn/practical-time-series-analysis/ungradedLab/fEobd/codes-for-scatterplot/lab
+
+## 
+
+## Simulate Test Scores
+
+```{r}
+set.seed(2016)  # There is a typo in the video (set.seed=2016)
+Test_1_scores=round(rnorm(50, 78, 10))
+Test_2_scores=round(rnorm(50, 78, 14))
+```
+
+## Test_1_scores
+
+```{r}
+Test_1_scores # Data won't be the same with the data generated in the video lecture since there was a typo in set.seed. 
+
+```
+
+## Test_2_scores
+
+```{r}
+Test_2_scores # Data won't be the same with the data generated in the video lecture since there was a typo in set.seed. 
+```
+
+## y ~ x
+
+```{r}
+# y ~ x
+plot(Test_2_scores~Test_1_scores) # Test_2_scores is y
+```
+
+```{r}
+plot(Test_2_scores~Test_1_scores, main='Test scores for two exams (50 students)', xlab='Test_1_scores', ylab='Test 2 scores')
+```
+
+```{r}
+plot(Test_2_scores~Test_1_scores, main='Test scores for two exams (50 students)', xlab='Test_1_scores', ylab='Test 2 scores', col='blue')
+```
+
+

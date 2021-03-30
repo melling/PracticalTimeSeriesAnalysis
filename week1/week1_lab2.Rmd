@@ -1,0 +1,68 @@
+---
+title: "Week 1 Lab2 - Histograms"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab2
+
+https://www.coursera.org/learn/practical-time-series-analysis/ungradedLab/hUK2B/codes-for-histogram/lab
+
+```{r}
+small.size.dataset=c(91,49,76,112,97,42,70, 100, 8, 112, 95, 90, 78, 62, 56, 94, 65, 58, 109, 70, 109, 91, 71, 76, 68, 62, 134, 57, 83, 66)
+```
+
+```{r}
+hist(small.size.dataset)
+```
+
+```{r}
+hist(small.size.dataset, xlab='My data points')
+```
+
+```{r}
+hist(small.size.dataset, xlab='My data points', main='Histogram of my data')
+```
+
+# Change from Frequency to a Density
+
+```{r}
+hist(small.size.dataset, xlab='My data points', main='Histogram of my data', freq=F)
+```
+
+# Add Color
+
+```{r}
+hist(small.size.dataset, xlab='My data points', main='Histogram of my data', freq=F, col='green')
+```
+
+# Add Density Line
+
+```{r}
+{hist(small.size.dataset, xlab='My data points', main='Histogram of my data', freq=F, col='green')
+lines(density(small.size.dataset))
+}
+```
+
+```{r}
+{
+hist(small.size.dataset, xlab='My data points', main='Histogram of my data', freq=F, col='green')
+lines(density(small.size.dataset), col='red', lwd=5)
+}
+```
+
+# Set breaks/binwidths to 10. Every 10 we get a bar.
+
+```{r}
+hist(small.size.dataset, xlab='My data points', main='Histogram of my data', freq=F, col='green', breaks=10)
+```
+
+```{r}
+{hist(small.size.dataset, xlab='My data points', main='Histogram of my data', freq=F, col='green', breaks=10)
+lines(density(small.size.dataset), col='red', lwd=5)
+}
+```
+

@@ -40,3 +40,43 @@ Implication: Constant Variance
 - Random Walks - **Not** stationary
 - Moving averages - Are stationary processes
 
+## White Noise
+
+Stationary
+Mean function
+
+$$u(t) = 0$$
+$$X_t \sim iid(0,\sigma^2)$$
+$$X_t \sim \mathcal{N}(0,\sigma^2)$$
+
+## Random Walks 
+
+- **Not** stationary
+
+$$Z_i \sim iid(\mu, \sigma^2)$$
+
+$\mu$ could be zero, but still not stationary.
+
+A journey is  just the sum of all its individual steps
+
+Expected value and variance increase linearly with time.
+
+The variance is not constant, so your process is not stationary.
+
+
+## Moving averages
+
+- Are stationary processes
+
+MA(q) a linear combination of the underlying Z's:
+$$X_t = \beta_0 Z_t + \beta_1 Z_{t-1} + \cdots + \beta_q Z_{t-q}$$
+
+Betas are weightings.
+
+Noise at t + Noise at t-1 + ... Noise at t-q
+
+MA(q) - q!!!
+
+Hard to come up with a naturally occuring moving average.
+
+## 

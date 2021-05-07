@@ -1,0 +1,35 @@
+---
+title: "Series and Series Representation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sequences
+
+Sequence - a list of numbers in a definite order
+
+Partial sum of sequence $\{a_n\}$
+
+$$s_n = a_1 + a_2 + \cdots + a_n$$
+
+## Series
+
+### Absolute convergence
+
+$$\sum_{k=1}^{\infty} |a_i|$$
+Absolute convergence implies convergence.
+
+### Geometric Series
+
+## Backward Shift Operator
+
+Take it back one step:
+
+$$BX_t = X_{t-1}$$
+$$B^2X_t = BBX_t = BX_{t-1} = X_{t-2}$$
+
+Take it back k steps:
+$$B^kX_t = X_{t-k}$$
